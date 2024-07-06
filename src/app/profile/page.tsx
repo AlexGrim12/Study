@@ -2,6 +2,7 @@ import Image from 'next/image'
 import profile from '@/assets/icons8-male-user-50.png'
 import { HeaderLogin } from '../components/HeaderLogin'
 import { MainLayout } from '../Layout/MainLayout'
+import Link from 'next/link'
 
 export default function Profile() {
   const user = {
@@ -61,6 +62,8 @@ export default function Profile() {
     },
   ]
 
+  const colores = ['bg-blue-100', 'bg-red-100', 'bg-yellow-100', 'bg-green-100']
+
   return (
     <MainLayout>
       <div className="flex justify-center mb-3">
@@ -85,9 +88,16 @@ export default function Profile() {
           {courses.map((course, index) => (
             <div
               key={index}
-              className="bg-gray-100 rounded-md p-2 text-center cursor-pointer hover:bg-blue-100"
+              className={`rounded-md p-2 text-center cursor-pointer hover:bg-blue-100 
+                bg-gray-200
+                `} // Aplica el color
             >
-              <div className="bg-gray-200 w-auto h-40 rounded-md">
+              <div
+                key={index}
+                className={`bg-gray-200 w-auto h-40 rounded-md 
+                ${colores[index % colores.length]}
+                `}
+              >
                 {/* <Image
                   src={course.image}
                   width={150}
@@ -108,21 +118,33 @@ export default function Profile() {
         <div className="grid grid-cols-3 gap-2">
           {/* Grid of summaries */}
           {summaries.map((summary, index) => (
-            <div
-              key={index}
-              className="bg-gray-100 rounded-md p-2 text-center cursor-pointer hover:bg-blue-100"
+            <Link
+              href={
+                'https://puffy-pan-a1d.notion.site/Ecuaciones-Diferenciales-424f30b44d624966913a6fa1a821acf7'
+              }
             >
-              <div className="bg-gray-200 w-auto h-40 rounded-md">
-                {/* <Image
+              <div
+                key={index}
+                className={`rounded-md p-2 text-center cursor-pointer hover:bg-blue-100 bg-gray-200
+                }`} // Aplica el color
+              >
+                <div
+                  key={index}
+                  className={`bg-gray-200 w-auto h-40 rounded-md ${
+                    colores[index % colores.length]
+                  }`}
+                >
+                  {/* <Image
                 src={summary.image}
                 width={150}
                 height={150}
                 alt="Summary image"
-              /> */}
+                /> */}
+                </div>
+                <p className="text-gray-700">{summary.name}</p>
+                <p className="text-gray-500">{summary.course}</p>
               </div>
-              <p className="text-gray-700">{summary.name}</p>
-              <p className="text-gray-500">{summary.course}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
