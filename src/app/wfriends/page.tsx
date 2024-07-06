@@ -45,8 +45,15 @@ export default function WFriends() {
           Últimos resúmenes de mis amigos
         </h2>
         <div className="grid grid-cols-3 gap-2 ">
-          {lastestSummaries.map((summary) => (
-            <Link href={summary.url} target="_blank" rel="noopener noreferrer">
+          {lastestSummaries.map((summary, index) => (
+            <Link
+              href={summary.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={summary.title}
+            >
+              {' '}
+              {/* Key para el Link */}
               <div
                 key={summary.title}
                 className="col-span-1 row-span-2 flex flex-col items-center justify-center rounded-lg bg-white bg-opacity-60 p-10"
@@ -54,16 +61,15 @@ export default function WFriends() {
                 <Image
                   src={summary.image}
                   alt={summary.title}
-                  key={summary.title}
+                  key={index} // Key única para el Image
                   width={100}
                   height={100}
-                  // redondear
                   className="rounded-full"
                 />
                 <h3>{summary.title}</h3>
                 <p>Author: {summary.author}</p>
                 <p>Course: {summary.course}</p>
-                <p>Date: {summary.date}</p> {/* Usa Link de react-router-dom */}
+                <p>Date: {summary.date}</p>
                 Ver resumen
               </div>
             </Link>
