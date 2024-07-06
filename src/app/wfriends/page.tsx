@@ -6,21 +6,21 @@ export default function WFriends() {
     // title, author, course, date, url
     {
       title: 'Resumen de ecuaciones diferenciales',
-      author: 'Alejandro Grimaldo',
+      author: 'Alejandro',
       course: 'Ecuaciones diferenciales',
       date: '2021-09-01',
-      url: 'https://www.notion.so/Resumen-de-ecuaciones-diferenciales-1b2c7a6b3c2f4c7b9c7a6b3c2f4c7b9',
+      url: 'https://puffy-pan-a1d.notion.site/Ecuaciones-Diferenciales-424f30b44d624966913a6fa1a821acf7',
     },
     {
       title: 'Resumen de probabilidad',
-      author: 'Alan',
-      course: 'Probabilidad',
+      author: 'Ruy',
+      course: 'Matemáticas avanzadas',
       date: '2021-09-01',
-      url: 'https://www.notion.so/Resumen-de-probabilidad-1b2c7a6b3c2f4c7b9c7a6b3c2f4c7b9',
+      url: 'https://puffy-pan-a1d.notion.site/Matem-ticas-Avanzadas-2b663830df3f42cebb164e3833a0b8c8',
     },
     {
       title: 'Resumen de matemáticas avanzadas',
-      author: 'Fernando',
+      author: 'Bruno',
       course: 'Matemáticas avanzadas',
       date: '2021-09-01',
       url: 'https://www.notion.so/Resumen-de-matem-ticas-avanzadas-1b2c7a6b3c2f4c7b9c7a6b3c2f4c7b9',
@@ -37,7 +37,9 @@ export default function WFriends() {
   return (
     <div className="bg-zinc-900 min-h-screen flex flex-col">
       <div className="col-span-2 bg-white rounded-md p-4 bg-opacity-60 m-3">
-        <h2 className="text-gray-800 font-bold mb-2">Últimos resúmenes</h2>
+        <h2 className="text-gray-800 font-bold mb-2">
+          Últimos resúmenes de mis amigos
+        </h2>
         <div className="grid grid-cols-3 gap-2 ">
           {lastestSummaries.map((summary) => (
             <div
