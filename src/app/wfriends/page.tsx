@@ -54,6 +54,7 @@ export default function WFriends() {
                 <Image
                   src={summary.image}
                   alt={summary.title}
+                  key={summary.title}
                   width={100}
                   height={100}
                   // redondear
