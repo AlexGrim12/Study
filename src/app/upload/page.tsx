@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { MainLayout } from '../Layout/MainLayout'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
+import Link from 'next/link'
 
 const BASE_URL = 'http://localhost:5000' // Reemplaza con la URL de tu backend
 
@@ -13,11 +14,25 @@ interface TemplateData {
   course_id: number
 }
 
+// Define una interface para los cursos
+interface Course {
+  id: number
+  name: string
+}
+
+// Arreglo de cursos de ejemplo, reemplaza con tus datos reales
+const courses: Course[] = [
+  { id: 1, name: 'Ecuaciones Diferenciales' },
+  { id: 2, name: 'Probabilidad' },
+  { id: 3, name: 'Matemáticas Avanzadas' },
+  // Agrega más cursos...
+]
+
 export default function Upload() {
   const navigation = useRouter()
   const [name, setName] = useState('')
   const [notionUrl, setNotionUrl] = useState('')
-  const [courseId, setCourseId] = useState<number>(0)
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null) // Guarda el curso seleccionado
   const [userId, setUserId] = useState<number>(0)
 
   useEffect(() => {
@@ -30,11 +45,15 @@ export default function Upload() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
+      if (!selectedCourse) {
+        alert('Por favor, selecciona un curso')
+        return
+      }
       const templateData: TemplateData = {
         user_id: userId,
         name,
         notion_url: notionUrl,
-        course_id: courseId,
+        course_id: selectedCourse.id, // Usa el id del curso seleccionado
       }
 
       const response = await axios.post(
@@ -54,7 +73,7 @@ export default function Upload() {
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-white font-bold text-4xl mb-4">Subir</h1>
         <p className="text-white text-lg mb-8 max-w-md">
-          Sube tus archivos a la nube
+          Sube tus archivos para compartirlos
         </p>
         <form
           onSubmit={handleSubmit}
@@ -87,23 +106,33 @@ export default function Upload() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="courseId" className="block text-gray-700 mb-2">
-              ID del curso:
+            <label htmlFor="course" className="block text-gray-700 mb-2">
+              Nombre del curso:
             </label>
-            <input
-              type="number"
-              id="courseId"
-              value={courseId}
-              onChange={(e) => setCourseId(parseInt(e.target.value, 10))}
+            <select
+              id="course"
+              value={selectedCourse?.id || ''} // Muestra el id del curso seleccionado
+              onChange={(e) => {
+                const selectedCourseId = parseInt(e.target.value, 10)
+                setSelectedCourse(
+                  courses.find((c) => c.id === selectedCourseId) || null
+                )
+              }}
               className="w-full px-3 py-2 rounded bg-gray-100 text-gray-700"
-              placeholder="ID del curso"
-            />
+            >
+              <option value="">Selecciona un curso</option>
+              {courses.map((course) => (
+                <option key={course.id} value={course.id}>
+                  {course.name}
+                </option>
+              ))}
+            </select>
           </div>
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
-            Subir
+            <Link href="/dashboard">Subir</Link>
           </button>
         </form>
       </div>
