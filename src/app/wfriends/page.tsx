@@ -24,10 +24,10 @@ export default function WFriends() {
     {
       title: 'Resumen de matemáticas avanzadas',
       author: 'Bruno',
-      course: 'Matemáticas avanzadas',
+      course: 'Lenguajes Formales y Autómatas',
       date: '2021-09-01',
       url: 'https://www.notion.so/Resumen-de-matem-ticas-avanzadas-1b2c7a6b3c2f4c7b9c7a6b3c2f4c7b9',
-      image: '/mates.jpg',
+      image: '/lenguajes.jpg',
     },
     // {
     //   title: 'Resumen de estructuras discretas',
