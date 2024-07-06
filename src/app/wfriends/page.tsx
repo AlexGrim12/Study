@@ -42,24 +42,18 @@ export default function WFriends() {
         </h2>
         <div className="grid grid-cols-3 gap-2 ">
           {lastestSummaries.map((summary) => (
-            <div
-              key={summary.title}
-              className="col-span-1 row-span-2 flex flex-col items-center justify-center rounded-lg bg-white bg-opacity-60 p-10"
-            >
-              <h3>{summary.title}</h3>
-              <p>Author: {summary.author}</p>
-              <p>Course: {summary.course}</p>
-              <p>Date: {summary.date}</p>
-              <Link
-                href={summary.url}
-                target="_blank"
-                rel="noopener noreferrer"
+            <Link href={summary.url} target="_blank" rel="noopener noreferrer">
+              <div
+                key={summary.title}
+                className="col-span-1 row-span-2 flex flex-col items-center justify-center rounded-lg bg-white bg-opacity-60 p-10"
               >
-                {' '}
-                {/* Usa Link de react-router-dom */}
+                <h3>{summary.title}</h3>
+                <p>Author: {summary.author}</p>
+                <p>Course: {summary.course}</p>
+                <p>Date: {summary.date}</p> {/* Usa Link de react-router-dom */}
                 Ver resumen
-              </Link>
-            </div>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
