@@ -35,7 +35,7 @@ export default function WFriends() {
   ]
 
   return (
-    <div className="bg-zinc-900 min-h-screen flex flex-col">
+    <div className="bg-black min-h-screen flex flex-col">
       <div className="col-span-2 bg-white rounded-md p-4 bg-opacity-60 m-3">
         <h2 className="text-gray-800 font-bold mb-2">Últimos resúmenes</h2>
         <div className="grid grid-cols-3 gap-2 ">
