@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Study: Tu red social para compartir notas de clase
 
-## Getting Started
+**Study** es una red social construida con Next.js donde los estudiantes pueden compartir sus notas de clase, resúmenes y recursos para ayudar a otros.
 
-First, run the development server:
+**Características:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Compartir notas:** Crea y publica notas en tu perfil, organizadas por curso.
+* **Colaborar con amigos:** Sigue a tus amigos para ver sus notas y comparte tus propias notas con ellos.
+* **Buscar notas:** Encuentra notas específicas sobre el curso que necesitas.
+* **Explorar resúmenes:** Encuentra resúmenes concisos de los temas más importantes.
+* **Gestión de perfil:** Crea un perfil personalizado y gestiona tu información.
+* **Interacción social:** Dale me gusta a las notas, comenta y comparte tus recursos.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Tecnologías:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* Next.js
+* React
+* Tailwind CSS
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Instalación:**
 
-## Learn More
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/study.git
+   ```
+2. Instala las dependencias:
+   ```bash
+   cd study
+   npm install
+   ```
+3. Inicia el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+**Uso:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Accede a la aplicación en [http://localhost:3000](http://localhost:3000) (el puerto puede variar).
+2. Crea una cuenta o inicia sesión.
+3. Crea una nueva nota, selecciona el curso y escribe el contenido.
+4. Explora las notas de otros usuarios, busca notas específicas o navega por los resúmenes.
+5. Interacciona con las notas dando me gusta, comentando o compartiéndolas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Ejemplos:**
 
-## Deploy on Vercel
+* **Crea una nueva nota:**
+    - Ingresa a tu perfil.
+    - Haz clic en "Crear nota".
+    - Selecciona el curso "Cálculo".
+    - Escribe el título "Derivadas" y el contenido del resumen de las derivadas.
+    - Publica la nota.
+* **Explora notas:**
+    - Busca notas del curso "Física".
+    - Visita el perfil de un amigo y revisa sus notas.
+* **Comparte una nota:**
+    - Encuentra una nota que te sea útil.
+    - Haz clic en el botón de "Compartir".
+    - Comparte la nota con tus amigos o en redes sociales.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Contribuciones:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+¡Las contribuciones son bienvenidas!  Para colaborar:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama para tu cambio.
+3. Haz los cambios necesarios en el código.
+4. Realiza un commit con tus cambios.
+5. Abre una Pull Request para que se revisen tus cambios.
+
+**Licencia:**
+
+Este proyecto se licencia bajo la licencia MIT.
+
+**Agradecimientos:**
+
+Gracias a Next.js, React y Tailwind CSS por las herramientas que hacen posible este proyecto.
+
+

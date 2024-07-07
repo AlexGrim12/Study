@@ -1,6 +1,7 @@
 import React from 'react'
 import { MainLayout } from '../Layout/MainLayout'
 import Link from 'next/link'
+import Image from 'next/image' // Importa Image de Next.js
 
 export default function Dashboard() {
   const userNotes = [
@@ -73,16 +74,26 @@ export default function Dashboard() {
         <h2 className="text-gray-800 font-bold mb-2">Mis notas</h2>
         <Link href="https://puffy-pan-a1d.notion.site/Ecuaciones-Diferenciales-424f30b44d624966913a6fa1a821acf7">
           <div className="grid grid-cols-3 gap-2">
-            {userNotes.map((note) => (
-              <div
-                key={note.title}
-                className="col-span-1 row-span-2 flex flex-col items-center justify-center rounded-lg bg-white bg-opacity-60 p-10"
-              >
-                <img src={note.image} alt={note.title} />
-                <h3 className="text-gray-800 mt-2">{note.title}</h3>
-                <p className="text-gray-600 mt-2">{note.description}</p>
-              </div>
-            ))}
+            {userNotes.map(
+              (
+                note,
+                index // Agrega index para la key
+              ) => (
+                <div
+                  key={index} // Key para el div
+                  className="col-span-1 row-span-2 flex flex-col items-center justify-center rounded-lg bg-white bg-opacity-60 p-10"
+                >
+                  <Image
+                    src={note.image}
+                    alt={note.title}
+                    width={100}
+                    height={100}
+                  />
+                  <h3 className="text-gray-800 mt-2">{note.title}</h3>
+                  <p className="text-gray-600 mt-2">{note.description}</p>
+                </div>
+              )
+            )}
           </div>
         </Link>
       </div>
@@ -108,18 +119,33 @@ export default function Dashboard() {
       <div className="col-span-2 bg-white rounded-md p-4 bg-opacity-60 m-3">
         <h2 className="text-gray-800 font-bold mb-2">Notas más recientes</h2>
         <div className="grid grid-cols-3 gap-2">
-          {ultimatesNotes.map((note) => (
-            <Link href="https://puffy-pan-a1d.notion.site/Ecuaciones-Diferenciales-424f30b44d624966913a6fa1a821acf7">
-              <div
-                key={note.title}
-                className="col-span-1 row-span-2 flex flex-col items-center justify-center rounded-lg bg-white bg-opacity-60 p-10"
+          {ultimatesNotes.map(
+            (
+              note,
+              index // Agrega index para la key
+            ) => (
+              <Link
+                href="https://puffy-pan-a1d.notion.site/Ecuaciones-Diferenciales-424f30b44d624966913a6fa1a821acf7"
+                key={index}
               >
-                <img src={note.image} alt={note.title} />
-                <h3 className="text-gray-800 mt-2">{note.title}</h3>
-                <p className="text-gray-600 mt-2">{note.description}</p>
-              </div>
-            </Link>
-          ))}
+                {' '}
+                {/* Key para el Link */}
+                <div
+                  key={index} // Key para el div
+                  className="col-span-1 row-span-2 flex flex-col items-center justify-center rounded-lg bg-white bg-opacity-60 p-10"
+                >
+                  <Image
+                    src={note.image}
+                    alt={note.title}
+                    width={100}
+                    height={100}
+                  />
+                  <h3 className="text-gray-800 mt-2">{note.title}</h3>
+                  <p className="text-gray-600 mt-2">{note.description}</p>
+                </div>
+              </Link>
+            )
+          )}
         </div>
       </div>
     </MainLayout>
